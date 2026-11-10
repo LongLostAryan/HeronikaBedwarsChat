@@ -92,13 +92,13 @@ When a BedWars1058 game ends, the plugin sends `GG.` from the surviving winners 
 ### Global Shout - shows to all players in a game, including spectators.
 ![Global Shout](docs/images/global-shout.png)
 
-### AutoGG autometically - says GG at the end of the game.
+### AutoGG - automatically says GG at the end of the game.
 ![AutoGG](docs/images/auto-gg.png)
 
 ### Non-Playing Spectator - when you spectate a game that you weren't playing.
 ![Non-Playing Spectator](docs/images/non-playing-spectator.png)
 
-### Playing-Game Spectator - when you are playing the game and spectating it for your teammates, it is the globat chat shows to everyone.
+### Playing-Game Spectator - when you are playing the game and spectating it for your teammates, it is the global chat that shows to everyone.
 ![Playing-Game Spectator](docs/images/playing-spectator.png)
 
 ### Playing-Game Spectator Team Chat - when you chat without using ! shows to teammates only.
