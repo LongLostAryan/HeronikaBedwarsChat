@@ -1,0 +1,39 @@
+name: HeronikaBedwarsChat
+description: '${description}'
+version: '${version}'
+
+main: org.heronika.heronikabedwarschat.core.HeronikaBedwarsChat
+
+authors: [ aryangamerxx, _AryanXD001 ]
+website: https://heronika.com
+
+softdepend:
+  - BedWars1058
+  - PlaceholderAPI
+
+commands:
+  hbc:
+    description: Main HeronikaBedwarsChat command.
+    usage: /hbc
+
+permissions:
+  heronikachat.bw.shoutbypass:
+    description: Bypass the global shout cooldown.
+    default: op
+  heronikachat.bw.clearchat:
+    description: Allows use of /hbc clearchat.
+    default: op
+  heronikachat.bw.reload:
+    description: Allows use of /hbc reload.
+    default: op
+  heronikachat.bw.stopchat:
+    description: Allows use of /hbc stopchat.
+    default: op
+  heronikachat.bw.admin:
+    description: Full access to all HeronikaBedwarsChat features.
+    default: op
+    children:
+      heronikachat.bw.shoutbypass: true
+      heronikachat.bw.clearchat: true
+      heronikachat.bw.reload: true
+      heronikachat.bw.stopchat: true

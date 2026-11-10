@@ -1,0 +1,27 @@
+prefix: '&5&lHERONIKA &7» '
+
+shout-cooldown: "5s"
+shout-cooldown-message: "{prefix}&cYou must wait {time}s before shouting again."
+
+clearchat-message: "{prefix}&4&lChat has been cleared."
+reload-message: "{prefix}&6Configuration reloaded."
+chat-disabled-message: "{prefix}&cChat has been disabled."
+chat-enabled-message: "{prefix}&2Chat has been enabled."
+chat-disabled-notice: "{prefix}&cChat is currently disabled."
+no-permission-message: "{prefix}&cYou don't have permission to use this command."
+command-usage-message: "{prefix}&cUsage: /hbc"
+command-help-message: |-
+  {prefix}&eAvailable commands:
+  {prefix}&6/hbc help &8» &7Show this help message
+  {prefix}&6/hbc clearchat &8» &7Clear chat for everyone
+  {prefix}&6/hbc reload &8» &7Reload the configuration
+  {prefix}&6/hbc stopchat &8» &7Toggle chat &2on &7or &coff
+
+format-chat-lobby: '{level} {vPrefix}{name}&7: {message}'
+format-chat-waiting: '{level} {vPrefix}{name}&7: {message}'
+format-chat-global: '{level} {team} &6[SHOUT] {vPrefix}{name}&7: {message}'
+format-chat-team: '{level} {team} {vPrefix}{name}&7: {message}'
+format-chat-spectator: '{level} &7[SPECTATOR] {vPrefix}{name}&7: {message}'
+format-game-spectator: '{level} {team} &7[SPECTATOR] {vPrefix}{name}&7: {message}'
+format-game-global-spectator: '{level} {team} &6[SHOUT] &7[SPECTATOR] {vPrefix}{name}&7: {message}'
+format-auto-gg: '{level} {team} &6[SHOUT] {vPrefix}{name}&7: &6GG.'
