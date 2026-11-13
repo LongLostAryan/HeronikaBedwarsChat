@@ -18,6 +18,7 @@ public final class ConfigManager {
 
     public void reload() {
         plugin.reloadConfig();
+        plugin.reloadAutoMessages();
     }
 
     public FileConfiguration getConfig() {

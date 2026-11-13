@@ -25,3 +25,22 @@ format-chat-spectator: '{level} &7[SPECTATOR] {vPrefix}{name}&7: {message}'
 format-game-spectator: '{level} {team} &7[SPECTATOR] {vPrefix}{name}&7: {message}'
 format-game-global-spectator: '{level} {team} &6[SHOUT] &7[SPECTATOR] {vPrefix}{name}&7: {message}'
 format-auto-gg: '{level} {team} &6[SHOUT] {vPrefix}{name}&7: &6GG.'
+
+# Automatically announce messages to players inside active BedWars arenas.
+# Supported intervals: ms, s, m, h (examples: 30s, 1m, 2h).
+# Lobby players and players in waiting/starting arenas do not receive these messages.
+auto_messages:
+  rejoin:
+    enabled: true
+    message: "{prefix}&6If you get disconnected from the game, use &c/rejoin &6command to re-join the game."
+    hover-message: ""
+    click-message: ""
+    send-interval: "210s"
+
+  discord:
+    enabled: true
+    message: "{prefix}&6This is our initial launch, so bugs are expected. Report bugs at &9discord.gg/heronika"
+    hover-message: "&cClick to join our Discord."
+    # A URL opens in the browser. A slash command runs. Other text is placed in chat for the player.
+    click-message: "your discord link here...."
+    send-interval: "3m"

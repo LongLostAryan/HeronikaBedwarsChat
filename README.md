@@ -22,6 +22,7 @@ The compatibility layer currently targets these BedWars1058 versions:
 - Separate team chat during active games.
 - Global shout using `!` before a message.
 - Configurable shout cooldown with `ms`, `s`, `m`, and `h` units.
+- Configurable repeating in-game announcements across active arenas, with independent intervals, hover text, and click actions.
 - Permission-based shout cooldown bypass.
 - Vanilla-white default message text while retaining manually typed `&` color codes.
 - Separate spectator chat for players who join an ongoing game only to watch.
@@ -53,7 +54,15 @@ The project is compiled against the BedWars1058 v23.2.1 API JAR included in `lib
 3. Make sure BedWars1058 is installed.
 4. Start or restart the server.
 5. Edit `plugins/HeronikaBedwarsChat/config.yml` to customize chat formats and messages.
-6. Run `/hbc reload` after editing the configuration.
+6. Run `/hbc reload` after editing the configuration. This also restarts configured in-game auto announcements.
+
+## In-game auto messages
+
+Configure repeating announcements under `auto_messages` in `config.yml`. Each entry has its own `enabled`, `message`, optional `hover-message` and `click-message`, and `send-interval` setting. Supported intervals are `ms`, `s`, `m`, and `h`, such as `30s` or `1m`.
+
+Announcements are sent individually to players currently assigned to an active BedWars arena. Lobby players and players in waiting/starting arenas are excluded. Multiple arenas receive the same announcement, but it is not broadcast server-wide. Use `/hbc reload` to apply changes without restarting.
+
+For `click-message`, an `http://` or `https://` value opens that URL, a value beginning with `/` runs that command, and any other value is placed in the player's chat input. Hover and click behavior apply to the announcement text.
 
 ## Chat behavior
 
@@ -104,6 +113,18 @@ When a BedWars1058 game ends, the plugin sends `GG.` from the surviving winners 
 ### Playing-Game Spectator Team Chat - when you chat without using ! shows to teammates only.
 ![Playing-Game Spectator Team](docs/images/playing-spectator-team.png)
 
+### In-Game Auto Messages
+
+Automatically scheduled announcements are sent to players in active arenas only. Each announcement has its own interval and can include custom hover text and a click action.
+
+**Rejoin announcement**
+
+![Rejoin auto message](docs/images/rejoin-automsg.png)
+
+**Discord announcement**
+
+![Discord auto message](docs/images/discord-automsg.png)
+
 ## Commands
 
 | Command | Description | Permission |
@@ -137,7 +158,7 @@ Example LuckPerms commands:
 
 ## Configuration
 
-The default `config.yml`:
+The default `config.yml` (including the in-game auto-message examples):
 
 ```yaml
 prefix: '&5&lHERONIKA &7» '
@@ -167,6 +188,25 @@ format-chat-spectator: '{level} &7[SPECTATOR] {vPrefix}{name}&7: {message}'
 format-game-spectator: '{level} {team} &7[SPECTATOR] {vPrefix}{name}&7: {message}'
 format-game-global-spectator: '{level} {team} &6[SHOUT] &7[SPECTATOR] {vPrefix}{name}&7: {message}'
 format-auto-gg: '{level} {team} &6[SHOUT] {vPrefix}{name}&7: &6GG.'
+
+# Automatically announce messages to players inside active BedWars arenas.
+# Supported intervals: ms, s, m, h (examples: 30s, 1m, 2h).
+# Lobby players and players in waiting/starting arenas do not receive these messages.
+auto_messages:
+  rejoin:
+    enabled: true
+    message: "{prefix}&6If you get disconnected from the game, use &c/rejoin &6command to re-join the game."
+    hover-message: ""
+    click-message: ""
+    send-interval: "210s"
+
+  discord:
+    enabled: true
+    message: "{prefix}&6This is our initial launch, so bugs are expected. Report bugs at &9discord.gg/heronika"
+    hover-message: "&cClick to join our Discord."
+    # A URL opens in the browser. A slash command runs. Other text is placed in chat for the player.
+    click-message: "your discord link here...."
+    send-interval: "3m"
 ```
 
 ### Shout cooldown units
@@ -243,4 +283,4 @@ The source is organized into two main packages:
 
 ## License
 
-Add your chosen open-source license before publishing this repository. If you choose MIT, include the standard MIT `LICENSE` file and update this section accordingly.
+Add your chosen open-source license before publishing this repository. The project license is specified in the `LICENSE` file at the repository root. Review that file before redistributing modified versions.

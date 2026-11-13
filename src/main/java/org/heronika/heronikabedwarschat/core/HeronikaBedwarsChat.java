@@ -11,6 +11,7 @@ public final class HeronikaBedwarsChat extends JavaPlugin {
     private ChatFormatManager chatFormatManager;
     private CompatibilityManager compatibilityManager;
     private BedWarsCompatibility compatibility;
+    private AutoMessageManager autoMessageManager;
     private volatile boolean chatEnabled = true;
 
     @Override
@@ -20,6 +21,8 @@ public final class HeronikaBedwarsChat extends JavaPlugin {
         chatFormatManager = new ChatFormatManager(configManager);
         compatibilityManager = new CompatibilityManager(this);
         compatibility = compatibilityManager.load();
+        autoMessageManager = new AutoMessageManager(this);
+        autoMessageManager.reload();
 
         if (compatibility != null) {
             getServer().getPluginManager().registerEvents(new ChatListener(this), this);
@@ -41,6 +44,9 @@ public final class HeronikaBedwarsChat extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (autoMessageManager != null) {
+            autoMessageManager.stop();
+        }
         getLogger().info("HeronikaBedwarsChat has been disabled!");
         instance = null;
     }
@@ -55,6 +61,12 @@ public final class HeronikaBedwarsChat extends JavaPlugin {
 
     public ChatFormatManager getChatFormatManager() {
         return chatFormatManager;
+    }
+
+    public void reloadAutoMessages() {
+        if (autoMessageManager != null) {
+            autoMessageManager.reload();
+        }
     }
 
     public BedWarsCompatibility getCompatibility() {

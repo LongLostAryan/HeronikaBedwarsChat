@@ -42,6 +42,10 @@ public final class ArenaContext {
         return gameSpectator;
     }
 
+    public String getState() {
+        return state;
+    }
+
     public boolean isWaiting() {
         return state.equalsIgnoreCase("waiting") || state.equalsIgnoreCase("starting");
     }
