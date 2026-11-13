@@ -113,7 +113,7 @@ When a BedWars1058 game ends, the plugin sends `GG.` from the surviving winners 
 ### Playing-Game Spectator Team Chat - when you chat without using ! shows to teammates only.
 ![Playing-Game Spectator Team](docs/images/playing-spectator-team.png)
 
-### In-Game Auto Messages
+### In-Game Auto Messages - comes with the v1.1.2 version.
 
 Automatically scheduled announcements are sent to players in active arenas only. Each announcement has its own interval and can include custom hover text and a click action.
 
