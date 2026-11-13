@@ -281,6 +281,3 @@ The source is organized into two main packages:
 - `org.heronika.heronikabedwarschat.core` contains the main plugin class and shared chat, command, configuration, and formatting classes.
 - `org.heronika.heronikabedwarschat.compatibility` contains the compatibility interface, arena context, shared API implementation, six version adapters, and adapter selector.
 
-## License
-
-Add your chosen open-source license before publishing this repository. The project license is specified in the `LICENSE` file at the repository root. Review that file before redistributing modified versions.
